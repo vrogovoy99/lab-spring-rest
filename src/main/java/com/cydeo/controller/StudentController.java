@@ -47,7 +47,7 @@ public class StudentController {
           "code":201
           "data":<created student data>
     */
-    @PutMapping
+    @PostMapping
     public ResponseEntity<ResponseWrapper> createStudent(@RequestBody StudentDTO studentDTO){
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(ResponseWrapper.builder()
