@@ -1,6 +1,8 @@
 package com.cydeo.dto;
 
 import com.cydeo.enums.AddressType;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -8,8 +10,9 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class AddressDTO {
-
+    @JsonIgnore
     private Long id;
 
     private String addressNo;
@@ -22,6 +25,5 @@ public class AddressDTO {
     private String flag;
 
     private AddressType addressType;
-
     private Integer currentTemperature;
 }
