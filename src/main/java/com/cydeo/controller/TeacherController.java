@@ -49,34 +49,34 @@ public class TeacherController {
                 .build());
     }
 
-       /*
-           Endpoint: /api/v1/teacher
-           HTTP Status Code: 201
-           Custom Response Header: "teacherUsername", <created username>
-
-           JSON Response Body:
-           "success": true
-           "message": "Teacher is successfully created."
-           "code":201
-           "data":<created teacher data>
-     */
-
-    @PutMapping
-    public ResponseEntity<ResponseWrapper> createTeacherWithPut(@RequestBody TeacherDTO teacherDTO){
-
-        teacherDTO = teacherService.createTeacher(teacherDTO);
-
-        ResponseWrapper responseWrapper = ResponseWrapper.builder()
-                .code(201)
-                .success(true)
-                .message("Teacher is successfully created.")
-                .data(teacherDTO)
-                .build();
-
-        return ResponseEntity.status(HttpStatus.CREATED)
-                .header("teacherUsername", teacherDTO.getUsername())
-                .body(responseWrapper);
-    }
+//       /*
+//           Endpoint: /api/v1/teacher
+//           HTTP Status Code: 201
+//           Custom Response Header: "teacherUsername", <created username>
+//
+//           JSON Response Body:
+//           "success": true
+//           "message": "Teacher is successfully created."
+//           "code":201
+//           "data":<created teacher data>
+//     */
+//
+//    @PutMapping
+//    public ResponseEntity<ResponseWrapper> createTeacherWithPut(@RequestBody TeacherDTO teacherDTO){
+//
+//        teacherDTO = teacherService.createTeacher(teacherDTO);
+//
+//        ResponseWrapper responseWrapper = ResponseWrapper.builder()
+//                .code(201)
+//                .success(true)
+//                .message("Teacher is successfully created.")
+//                .data(teacherDTO)
+//                .build();
+//
+//        return ResponseEntity.status(HttpStatus.CREATED)
+//                .header("teacherUsername", teacherDTO.getUsername())
+//                .body(responseWrapper);
+//    }
 
     @PostMapping
     public ResponseEntity<ResponseWrapper> createTeacher(@RequestBody TeacherDTO teacherDTO){
