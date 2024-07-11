@@ -1,0 +1,30 @@
+To consume API use FEING CLIENT
+
+1. Add dependency
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
+
+2. add @EnableFeignClients in runner class
+
+3. Create client package, WeatherClient.class
+
+4. use https://www.jsonschema2pojo.org/ to map object and create WeatherResponse classes.
+
+5. Dependency Inject WeatherClient in implementation class
+
+6. put access key in application.property file
+    access_key=dsadfasdfadfadf
+
+    then in implementation class add
+
+    @Value("${access_key}")
+    private String accessKey;
+
+
+
+
+
+
