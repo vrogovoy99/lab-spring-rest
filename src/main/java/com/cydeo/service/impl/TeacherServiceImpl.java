@@ -41,7 +41,7 @@ public class TeacherServiceImpl implements TeacherService {
     @Override
     public TeacherDTO findByUsername(String username) {
         Teacher foundTeacher = teacherRepository.findByUsername(username)
-                .orElseThrow(() -> new NotFoundException("Teacher not found!"));
+                .orElseThrow(() -> new NotFoundException("Teacher " + username + " not found!"));
         return mapperUtil.convert(foundTeacher, new TeacherDTO());
     }
 

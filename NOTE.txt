@@ -24,6 +24,15 @@ To consume API use FEING CLIENT
     private String accessKey;
 
 
+7. add flag source (https://restcountries.com/v3.1/name/deutschland)
+
+7.1. Create CountryClient interface
+
+7.2. use https://www.jsonschema2pojo.org/ to map object and create classes in dto package
+
+8. Exception catcher in exception/GlobalExceptionHandler
+ExceptionWrapper
+
 
 
 
