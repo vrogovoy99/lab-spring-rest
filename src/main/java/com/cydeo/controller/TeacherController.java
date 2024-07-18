@@ -3,6 +3,7 @@ package com.cydeo.controller;
 import com.cydeo.dto.ResponseWrapper;
 import com.cydeo.dto.TeacherDTO;
 import com.cydeo.service.TeacherService;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -79,7 +80,7 @@ public class TeacherController {
 //    }
 
     @PostMapping
-    public ResponseEntity<ResponseWrapper> createTeacher(@RequestBody TeacherDTO teacherDTO){
+    public ResponseEntity<ResponseWrapper> createTeacher(@RequestBody @Valid TeacherDTO teacherDTO){
         //we need to create the teacher based on the request body
         TeacherDTO createdTeacher = teacherService.createTeacher(teacherDTO);
         //customize json body

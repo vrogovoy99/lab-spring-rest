@@ -37,6 +37,38 @@ To consume API use FEING CLIENT
         ExceptionWrapper.class  - example
 
 9. validation exception response
+9.1. Add SpringBoot validation dependancy in pom.xml
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-validation</artifactId>
+        </dependency>
+
+9.2. Add Spring Boot validation rules to DTO classes (example: com/cydeo/dto/TeacherDTO.java). Some of the key annotations
+
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    @JsonIgnoreProperties(ignoreUnknown = true)
+    public class TeacherDTO {
+    @JsonIgnore
+    private Long id;
+    @NotBlank(message = "First Name is a required field")
+    @Size(min = 2, max = 50, message = "First Name must be between 2 and 50 characters long")
+    @Pattern(regexp = "^[a-zA-Z]+$", message = "First Name must contain only letters")
+
+9.3. Put @Valid annotation in controller accepting validated object.
+
+     @PostMapping
+        public ResponseEntity<ResponseWrapper> createTeacher(@RequestBody @Valid TeacherDTO teacherDTO){
+
+     The validation error will return MethodArgumentNotValidException.class
+
+9.4. In GlobalExeption.class add method to catch MethodArgumentNotValidException.class
+
+9.5. Create ValidationException class to capture MethodArgumentNotValidException.class errors
+
+9.6. Add ValidationException list in ExceptionWrapper to display error message with MethodArgumentNotValidException.class outputs
+
+
 
 
 
