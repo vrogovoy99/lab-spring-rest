@@ -68,6 +68,7 @@ To consume API use FEING CLIENT
 
 9.6. Add ValidationException list in ExceptionWrapper to display error message with MethodArgumentNotValidException.class outputs
 
+9.7. in GlobalExceptionHandler add exception.printStackTrace(); in each method to display error in console / log.
 
 
 

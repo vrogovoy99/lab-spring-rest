@@ -32,6 +32,8 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(AlreadyExistsException.class)
     public ResponseEntity<ExceptionWrapper> alreadyExistException(AlreadyExistsException exception, HttpServletRequest request){
 
+        exception.printStackTrace();
+
         ExceptionWrapper exceptionWrapper = new ExceptionWrapper(HttpStatus.CONFLICT.value(), exception.getMessage(), request.getRequestURI());
 
         return ResponseEntity.status(HttpStatus.CONFLICT)
@@ -40,6 +42,8 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(NotFoundException.class)
     public ResponseEntity<ExceptionWrapper> notFoundException(NotFoundException exception, HttpServletRequest request){
+
+        exception.printStackTrace();
 
         ExceptionWrapper exceptionWrapper = new ExceptionWrapper(HttpStatus.NOT_FOUND.value(), exception.getMessage(), request.getRequestURI());
 
