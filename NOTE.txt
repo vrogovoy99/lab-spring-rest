@@ -70,6 +70,8 @@ To consume API use FEING CLIENT
 
 9.7. in GlobalExceptionHandler add exception.printStackTrace(); in each method to display error in console / log.
 
+9.8. In order to reuse already existing GlobalExceptionHandler.alreadyExistException error handling you can add  throw new AlreadyExistsException in the code for other validations.
+
 
 
 

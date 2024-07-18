@@ -54,6 +54,10 @@ public class TeacherServiceImpl implements TeacherService {
             throw new AlreadyExistsException("Teacher already exists!");
         }
 
+        if (teacherRepository.existsByEmail(teacherDTO.getEmail())){
+            throw new AlreadyExistsException("Teacher with email " + teacherDTO.getEmail() + " already exists!");
+        }
+
         addressRepository.findByAddressNo(teacherDTO.getAddressNo())
                 .orElseThrow(() -> new NotFoundException("Address not found!"));
 
