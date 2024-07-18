@@ -30,14 +30,13 @@ To consume API use FEING CLIENT
 
 7.2. use https://www.jsonschema2pojo.org/ to map object and create classes in dto package
 
-8. Exception catcher in exception/GlobalExceptionHandler
-    @RestControllerAdvice
-     @ExceptionHandler([exception class].class)
-     in methods parameters include HttpServletRequest to get URL
+8. Exception catcher to catch and respond to custom class exceptions in exception/GlobalExceptionHandler
+        @RestControllerAdvice
+        @ExceptionHandler([exception class].class)
+         in methods parameters include HttpServletRequest to get URL
+        ExceptionWrapper.class  - example
 
-    ExceptionWrapper.class  - example
-
-9. validation
+9. validation exception response
 
 
 
